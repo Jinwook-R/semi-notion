@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <a class="LinkItem" href="/product-list">product list</a>
+    <a class="LinkItem" href="/article-list">article list</a>
+    <script>
+        const route = () => {
+            const { pathname } = window.location;
+            const $container = document.querySelector('#container');
+            console.log(pathname);
+            if(pathname === '/') {
+                $container.innerHTML = `<h1>Home</h1>`
+            }else if(pathname === '/product-list') {
+                $container.innerHTML = `<h1>상품 목록</h1>`
+            }else if(pathname === '/article-list') {
+                $container.innerHTML = `<h1>게시글 목록</h1>`
+            }
+        }   
+
+        route();
+
+        window.addEventListener('click', e => {
+            if(e.target.matches('.LinkItem')) {
+                e.preventDefault();
+                const { href } = e.target;
+                window.history.pushState(null, null, href);
+                route();
+            }
+        })
+
+    </script>
+</body>
+</html>
