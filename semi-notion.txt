@@ -1,3 +1,3 @@
 cloud-server-public-ip: 211.253.10.18
 cloud-server-ssh-port: 22222
-cloud-server-password: 5UPviepX95A3
+jenkins-admin-password: c12d55239e954fda968d166556546847
